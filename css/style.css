@@ -1,0 +1,16 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.word {
+  display: inline-block;
+  margin: 2%;
+}
+
+.word img {
+  display: block;
+  min-width: 14.2vw;
+  max-width: 30vw;
+}
