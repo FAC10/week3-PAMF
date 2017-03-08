@@ -87,3 +87,4 @@ We will use QUnit to test these functions.
 * Add **instructional example** on page load
 * Add **other clues** such as movie rating, trivia etc.
 * Add a user score that increments (e.g. 5 points for correct answer **without** clues, 3 points for correct answer **with** clues)
+* Add the ability for users to change the number of gifs per word, thereby altering the difficulty of the game
