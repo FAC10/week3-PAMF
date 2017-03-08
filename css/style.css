@@ -4,12 +4,12 @@
   flex-wrap: wrap;
 }
 
-.word {
+.columns {
   display: inline-block;
   margin: 2%;
 }
 
-.word img {
+.columns img {
   display: block;
   min-width: 14.2vw;
   max-width: 30vw;
