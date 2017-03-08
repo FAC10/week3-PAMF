@@ -18,11 +18,11 @@ var MovieDB = (function () {
     });
   }
 
-  return { fetchMovieDB:fetchMovieDB };
+  return { fetchMovieDB:fetchMovieDB, random:random };
 })()
 
 
-// 
+//
 //
 // MovieDB.fetchMovieDB(function(err, result) {
 //   if(err) {}
