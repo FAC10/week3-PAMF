@@ -12,3 +12,12 @@ var fetch = (function(url, callback){
   xhr.open('GET', url, true);
   xhr.send();
 });
+
+// TITLE HANDLING
+function bannedWords(input) {
+	var banned = ['of','the','from']
+	input = response.name.split(' ').map(function (a) {
+	return (banned.indexOf(a.toLowerCase()) !== -1) ? a.toUpperCase() : a;
+	});
+	return input;
+}
