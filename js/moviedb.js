@@ -4,7 +4,6 @@ var MovieDB = (function () {
    return Math.floor(Math.random() * n) + 1;
   }
 
-
   function makeUrl() {
     return "https://api.themoviedb.org/3/discover/movie?"+
     "api_key=7206d76e96b3e78b399d05fbcda1ea0d&language=en-US%20en-GB&"+
@@ -19,12 +18,4 @@ var MovieDB = (function () {
   }
 
   return { fetchMovieDB:fetchMovieDB, random:random };
-})()
-
-
-//
-//
-// MovieDB.fetchMovieDB(function(err, result) {
-//   if(err) {}
-//   console.log(result);
-// })
+})();
