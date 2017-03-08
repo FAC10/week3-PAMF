@@ -1,6 +1,15 @@
-module('createLapElement');
-test('createLapElement makes a human readable lap element', (assert) => {
-  var result = createLapElement(0, 500, 'testing').innerText;
-  var expected = 'Lap number 1 00:00.50';
-  assert.equal(result, expected);
+module('random number function tests');
+test('tests that random number function returns a random number between 1 and 50 when n=50', (assert) => {
+    var result = (MovieDB.random(50) > 0 && MovieDB.random(50) < 51);
+    var expected = true;
+    assert.ok(result, expected);
 });
+
+test('tests that random number function returns a random number between 1 and 20 when n=20', (assert) => {
+    var result = (MovieDB.random(20) > 0 && MovieDB.random(20) < 21);
+    var expected = true;
+    assert.ok(result, expected);
+});
+
+
+// ;
