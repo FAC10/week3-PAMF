@@ -7,6 +7,8 @@ var fetch = (function(url, callback){
           callback(null, response);
       } else if (xhr.readyState === 4 && xhr.status === 404) {
           callback("It's not working! Status: " + xhr.status);
+      } else {
+        console.log('Running ' + url)
       }
   };
   xhr.open('GET', url, true);

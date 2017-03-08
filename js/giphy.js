@@ -1,14 +1,26 @@
-console.log("hello! I am giphy API");
-// TARGET URL: http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
+var Giphy = (function (){
+  var buildURL = function (word) {
+    return 'http://api.giphy.com/v1/gifs/search?q=' + word + '&limit=10&api_key=dc6zaTOxFJmzC';
+  };
 
-function giphy (obj, callback) {
-  var apiKey = 'dc6zaTOxFJmzC';
-  var titleArray = obj.name.split(' ');
-  callback(null, titleArray);
-}
+  var giphyFetch = function (arr, callback) {
+    var result = arr.map(function () { return; });
+    var count = 0;
+    arr.forEach(function (string, index) {
+      if (string[0].toUpperCase() === string[0]) {
+        count++;
+        result[index] = string;
+        if (count === result.length) callback(null, result);
+      } else {
+        fetch(buildURL(string), function (err, res) {
+          if (err) { return callback(err); }
+          count++;
+          result[index] = res;
+          if (count === result.length) callback(null, result);
+        });
+      }
+    });
+  };
 
-var testObj = {name:"Lord of the rings"}
-
-giphy(testObj, function (err, res) {
-  console.log(res);
-});
+  return { buildURL:buildURL, giphyFetch:giphyFetch };
+})();
