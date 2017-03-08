@@ -11,17 +11,28 @@ function howManyGifs (arr) {
   return count;
 }
 
-function create (num, element, cls) {
+function create (num, element, cls, txt, src) {
+  var arr = [];
   while (num > 0) {
-    console.log('num is ' + num);
     var el = document.createElement(element);
-    console.log('element is ' + el);
+    if (cls) {
     el.className = cls;
-    console.log(el.className);
-    num = num--;
   }
+  if (txt) {
+    el.innerHTML = txt;
+  }
+  if (src) {
+    el.src = src;
+  }
+    arr.push(el);
+    num--;
+  }
+  return arr;
 }
 
-create(3, 'section', 'columns');
 
-howManyGifs(['www.facebook.com', 'OF', "google.com", 'THE']);
+//tests
+
+create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png');
+//
+// howManyGifs(['www.facebook.com', 'OF', "google.com", 'THE']);
