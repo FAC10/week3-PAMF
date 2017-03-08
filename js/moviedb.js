@@ -22,9 +22,9 @@ var MovieDB = (function () {
 })()
 
 
-
-
-MovieDB.fetchMovieDB(function(err, result) {
-  if(err) {}
-  console.log(result);
-})
+// 
+//
+// MovieDB.fetchMovieDB(function(err, result) {
+//   if(err) {}
+//   console.log(result);
+// })
