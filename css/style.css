@@ -18,3 +18,7 @@
   max-width: 15vw;
   padding: 1%;
 }
+
+form {
+  display:none;
+}
