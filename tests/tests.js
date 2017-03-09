@@ -61,11 +61,7 @@ test('check that waterfall with args corretly outputs an array with results from
 
 });
 
-
-
-
-
-module('random number function tests');
+module('MOVIEDB function');
 test('tests that random number function returns a random number between 1 and 50 when n=50', (assert) => {
     var result = (MovieDB.random(50) > 0 && MovieDB.random(50) < 51);
     assert.ok(result);
