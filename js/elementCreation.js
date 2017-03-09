@@ -1,83 +1,46 @@
-// // name: "lord of the rings", gifs: [url, 'OF', "THE", url]
-//
-var createElements = (function () {
-function howManyGifs (arr) {
-  var count = 0;
-  arr.forEach(function(e) {
-    if(e.toUpperCase() != e) {
-      count++;
+var createElements = (function() {
+
+    function create(element, cls, txt, src) {
+        var el = document.createElement(element);
+        if (cls) {
+            el.className = cls;
+        }
+        if (txt) {
+            el.innerHTML = txt;
+        }
+        if (src) {
+            el.src = src;
+        }
+        return el;
     }
-  })
-  console.log(count);
-  return count;
-}
 
-function create (element, cls, txt, src) {
-    var el = document.createElement(element);
-    if (cls) {
-    el.className = cls;
-    console.log(el.className);
-  }
-  if (txt) {
-    el.innerHTML = txt;
-  }
-  if (src) {
-    el.src = src;
-  }
-  return el;
-}
+    function sortObj(obj, cb) {
+        var flex = document.querySelector('.flex');
+        obj.gifs.forEach(function(o, i) {
+            var column = create('section', 'columns');
+            var word = create('p', 'word-number', 'word ' + (i + 1), '');
+            column.appendChild(word);
+            if (typeof o !== 'string') {
+                gifAppend(o, column);
+            } else {
+                column.appendChild(create('p', 'bannedword', o, ''));
+            }
+            flex.appendChild(column);
 
-function appendClass(parent, child, i) {
-  var parents = [].slice.call(document.getElementsByClassName(parent));
-  console.log(parents[0]);
-  parents[i].appendChild(child);
-  console.log('parents ' + i + ' is ' + parents[i]);
-}
+        });
+        cb(null, obj);
+    }
 
-function appendQuery(parent, child) {
-  document.querySelector(parent).appendChild(child);
-}
-// var water = document.createTextNode("Water");
-// append('.flex', water);
+    function gifCreation(url) {
+      return create('img', 'gif', '', url);
+    }
 
-function columnAppend(num) {
-while (num > 0) {
-var column = create('section', 'columns', '', '');
-appendQuery('.flex', column);
-num--;
-}
-}
+    function gifAppend(urlList, column) {
+        urlList.forEach(function(url) {
+          var gif = gifCreation(url);
+          column.appendChild(gif);
+        });
+    }
 
-function wordAppend() {
-  console.log('trying to word append');
-var num = document.getElementsByClassName('columns').length;
-for (var i = 0; i < num; i++) {
-  console.log('entering for loop');
-  var word = create('p', '', 'word ' + (i+1), '');
-  console.log(word);
-  appendClass('columns', word, i);
-}
-}
-
-function gifCreation() {
-  var img = create('img', '', '', 'https://www.hello.com/img_/hello_logo_hero.png')
-  console.log(img);
-  return img;
-}
-
-function gifAppend() {
-  var num = document.getElementsByClassName('columns').length;
-for (var i = 0; i < num; i++) {
-  appendClass('columns', gifCreation(), i);
-  appendClass('columns', gifCreation(), i);
-  appendClass('columns', gifCreation(), i);
-}
-}
-
-  return { create:create, howManyGifs:howManyGifs, columnAppend:columnAppend, wordAppend:wordAppend, gifAppend:gifAppend};
+    return { sortObj: sortObj };
 })();
-var arr = [];
-
-createElements.columnAppend(4);
-createElements.wordAppend();
-createElements.gifAppend();
