@@ -6,14 +6,14 @@ test('title handling', (assert) => {
     });
     var expected = ['lord', 'OF', 'THE', 'rings', 'FROM', 'rocks'];
     assert.deepEqual(result, expected);
-})
+});
 
 test('test that Giphy.buildURL creates a valid Giphy url', (assert) => {
   var result = Giphy.buildURL("lord");
-  var expected = "http://api.giphy.com/v1/gifs/search?q=lord"
+  var expected = "http://api.giphy.com/v1/gifs/search?q=lord";
   assert.ok(result.includes (expected));
   result = Giphy.buildURL("finn");
-  expected = "http://api.giphy.com/v1/gifs/search?q=finn"
+  expected = "http://api.giphy.com/v1/gifs/search?q=finn";
   assert.ok(result.includes(expected));
 });
 
