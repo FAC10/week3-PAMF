@@ -2,7 +2,7 @@
 // Also specifies'banned' words that should not be converted into gifs but displayed as they are.
 var guessMovieApp = (function () {
   var bannedWords = function (input, cb) {
-    var banned = ['of','the','from','my', 'II', 'III', 'IV', 'V', 'is', 'or'];
+    var banned = ['of','the','from','my', 'II', 'III', 'IV', 'V', 'is', 'or', 'and'];
     var result = { name: input.name };
     result.gifs = input.name.split(' ').map( function (a) {
       return (banned.indexOf(a.toLowerCase()) !== -1) ? a.toUpperCase() : a.toLowerCase();
