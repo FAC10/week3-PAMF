@@ -1,3 +1,34 @@
+body {
+  font-family: 'futura';
+  text-align: center;
+  background-color: #5dbcff;
+}
+
+.word-number {
+  font-size: 1.3rem;
+}
+
+.bannedword {
+  font-size: 2rem;
+  border: 0.2rem solid white;
+  padding: 0.6rem;
+}
+
+button, input[type='submit'] {
+    padding: 0.6rem;
+    font-size: 1.5rem;
+    font-family: futura;
+    background-color: #5dbcff;
+    border: 0.2rem solid white;
+    color: white;
+}
+
+button:hover {
+  background-color: white;
+  color: #5dbcff;
+  border: 0.2rem solid white;
+}
+
 .flex {
   display: flex;
   justify-content: center;
@@ -7,9 +38,6 @@
 .columns {
   display: inline-block;
   margin: 2%;
-  /*display: flex;
-  justify-content: center;
-  flex-wrap: wrap;*/
 }
 
 .columns img {
@@ -21,4 +49,26 @@
 
 form {
   display:none;
+  font-size: 1.5rem;
+  border: 0.2rem solid white;
+  padding: 1rem;
+}
+
+input {
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  padding:1rem;
+  font-family: 'futura';
+}
+
+input:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #93b3d4;
+  font-family: 'futura';
 }
