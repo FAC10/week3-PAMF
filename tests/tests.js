@@ -43,3 +43,22 @@ result = (createElements.create(2, 'p', 'columns','hello', 'https://www.hello.co
 expected = 'hello';
 assert.equal(result, expected);
 });
+
+test("test that image has the right src", (assert) => {
+result = (createElements.create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png'))[2].src;
+expected = 'https://www.hello.com/img_/hello_logo_hero.png';
+assert.equal(result, expected);
+});
+
+module('counting gifs(urls) for column creation')
+test("test that the function finds two urls", (assert) => {
+result = createElements.howManyGifs(['www.facebook.com', 'OF', "google.com", 'THE']);
+expected = 2;
+assert.equal(result, expected);
+});
+
+test("test that the function returns 4 urls", (assert) => {
+result = createElements.howManyGifs(['THE','www.facebook.com', 'OF', "google.com", 'THE', 'www.instagram.com', 'https://www.hello.com/img_/hello_logo_hero.png']);
+expected = 4;
+assert.equal(result, expected);
+});
