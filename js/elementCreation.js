@@ -14,22 +14,6 @@ var createElements = (function() {
         return el;
     }
 
-    function sortObj(obj, cb) {
-        var flex = document.querySelector('.flex');
-        obj.gifs.forEach(function(o, i) {
-            var column = create('section', 'columns');
-            var word = create('p', 'word-number', 'word ' + (i + 1), '');
-            column.appendChild(word);
-            if (typeof o !== 'string') {
-                gifAppend(o, column);
-            } else {
-                column.appendChild(create('p', 'bannedword', o, ''));
-            }
-            flex.appendChild(column);
-
-        });
-        cb(null, obj);
-    }
 
     function gifCreation(url) {
       return create('img', 'gif', '', url);
@@ -42,5 +26,21 @@ var createElements = (function() {
         });
     }
 
-    return { sortObj: sortObj };
+    return function (obj, cb) {
+      var flex = document.querySelector('.flex');
+      obj.gifs.forEach(function(o, i) {
+        var column = create('section', 'columns');
+        var word = create('p', 'word-number', 'word ' + (i + 1), '');
+        column.appendChild(word);
+        if (typeof o !== 'string') {
+          gifAppend(o, column);
+        } else {
+          column.appendChild(create('p', 'bannedword', o, ''));
+        }
+        flex.appendChild(column);
+
+      });
+      cb(null, obj);
+    };
+
 })();
