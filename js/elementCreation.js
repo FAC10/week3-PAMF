@@ -59,17 +59,18 @@ for (var i = 0; i < num; i++) {
 }
 }
 
-function gifCreation(cb) {
+function gifCreation() {
   var img = create('img', '', '', 'https://www.hello.com/img_/hello_logo_hero.png')
-  return cb(img);
+  console.log(img);
+  return img;
 }
 
 function gifAppend() {
   var num = document.getElementsByClassName('columns').length;
 for (var i = 0; i < num; i++) {
-  appendClass('columns', gifCreation, i);
-  // append(array[i], gifCreation);
-  // append(array[i], gifCreation);
+  appendClass('columns', gifCreation(), i);
+  appendClass('columns', gifCreation(), i);
+  appendClass('columns', gifCreation(), i);
 }
 }
 
