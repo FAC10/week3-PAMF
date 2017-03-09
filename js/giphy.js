@@ -62,8 +62,26 @@ var Giphy = (function (){
     // callback(err, { name: 'My big etc.', gifs: [[array of url], url, url]})
   };
 
+ var dataHandler = function (obj) {
+  return obj.images.original
+  }
+
+var accessObject = function (obj,cb){
+var result = {name:obj.name};
+results.gifs = obj.gifs.map(function (wordGifArray){
+  return wordGifArray.data.map(function (gif){
+    dataHandler(gif);
+  })
+
+})
+cb (result);
+
+}
+
   return { giphyFetch : giphyFetch };
 })();
+
+
 
 
 Giphy.giphyFetch({ name: 'My Big Fat Greek Wedding', gifs: ['my', 'big', 'fat', 'greek', 'wedding']  }, function (err, resp) {
