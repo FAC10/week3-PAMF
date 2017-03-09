@@ -9,6 +9,8 @@ test('test that Giphy.buildURL creates a valid Giphy url', (assert) => {
   assert.equal(result, expected);
 });
 
+
+
 module('random number function tests');
 test('tests that random number function returns a random number between 1 and 50 when n=50', (assert) => {
     var result = (MovieDB.random(50) > 0 && MovieDB.random(50) < 51);
