@@ -1,3 +1,4 @@
+// Creates a DOM element based on specified criteria
 var createElements = (function() {
 
     function create(element, cls, txt, src) {
@@ -14,18 +15,18 @@ var createElements = (function() {
         return el;
     }
 
-
+// Creates gif image from the url
     function gifCreation(url) {
       return create('img', 'gif', '', url);
     }
-
+// Appends git to the column
     function gifAppend(urlList, column) {
         urlList.forEach(function(url) {
           var gif = gifCreation(url);
           column.appendChild(gif);
         });
     }
-
+// Appends colums and column titles to flex container
     return function (obj, cb) {
       var flex = document.querySelector('.flex');
       flex.innerHTML = '';
