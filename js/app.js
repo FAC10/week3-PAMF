@@ -9,7 +9,7 @@ var guessMovieApp = (function () {
   };
 
   var run = function () {
-    var tasks = [bannedWords, Giphy.giphyFetch, Giphy.addGiphyUrls, attachForm];
+    var tasks = [bannedWords, Giphy.giphyFetch, Giphy.addGiphyUrls, createElements, attachForm];
     MovieDB.fetchMovieDB(function (err, resp) {
       waterfall(resp, tasks, function (err, resp) {
         if(err) console.log(err);
