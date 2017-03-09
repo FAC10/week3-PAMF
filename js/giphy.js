@@ -54,7 +54,11 @@ var Giphy = (function (){
     var tasks = conditionalArrayMap(args, isCaps, skip, fetch);
     console.log(tasks);
 
-    waterfallWithArgs(args, tasks, callback);
+    waterfallWithArgs(args, tasks, function (err, resp) {
+      if (err) callback(err);
+      result.gifs = resp;
+      callback(null, result);
+    });
     // callback(err, { name: 'My big etc.', gifs: [[array of url], url, url]})
   };
 
