@@ -66,8 +66,12 @@ var Giphy = (function (){
 
   var addGiphyUrls = function (obj,cb){
     var result = {name:obj.name};
-    result.gifs = obj.gifs.map(function (wordObject){
-      return wordObject.data.map(function (gifs){
+
+    result.gifs = obj.gifs.map(function (word){
+      if (typeof word === 'string') {
+        return word;
+      }
+      return word.data.map(function (gifs){
         return accessURL(gifs);
       });
     });
