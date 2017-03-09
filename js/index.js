@@ -16,9 +16,9 @@ var fetch = (function(url, callback){
 
 // TITLE HANDLING
 function bannedWords(input) {
-	var banned = ['of','the','from','my'];
-	input = response.name.split(' ').map(function (a) {
-	return (banned.indexOf(a.toLowerCase()) !== -1) ? a.toUpperCase() : a;
-	});
-	return input;
+    var banned = ['of','the','from','my'];
+    var result = input.name.split(' ').map(function (a) {
+    return (banned.indexOf(a.toLowerCase()) !== -1) ? a.toUpperCase() : a.toLowerCase();
+    });
+    return result;
 }

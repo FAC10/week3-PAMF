@@ -78,7 +78,11 @@ var Giphy = (function (){
     cb(null, result);
   };
 
-  return { giphyFetch : giphyFetch, addGiphyUrls:addGiphyUrls};
+  return { giphyFetch : giphyFetch,
+     addGiphyUrls:addGiphyUrls,
+     conditionalArrayMapApply:conditionalArrayMapApply,
+     conditionalArrayMap:conditionalArrayMap,
+     buildURL};
 })();
 
 function waterfall(arg, tasks, cb) {
