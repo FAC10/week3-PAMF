@@ -3,7 +3,6 @@ var fetch = (function(url, callback){
   xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log("success from " + url);
         var response = JSON.parse(xhr.responseText);
         callback(null, response);
       } else if (xhr.readyState === 4 && xhr.status === 404) {

@@ -86,28 +86,3 @@ var Giphy = (function (){
      waterfallWithArgs:waterfallWithArgs
    };
 })();
-
-function waterfall(arg, tasks, cb) {
-   var waterfallcb = function(error, res) {
-    if (error) { return cb(error); }
-    n += 1;
-    if (n === tasks.length) {
-      tasks[n - 1](res, cb);
-    } else {
-      tasks[n - 1](res, waterfallcb);
-    }
-  };
-  var n = 0;
-  waterfallcb(null, arg);
-}
-
-waterfall({ name: 'My Big Fat Greek Wedding', gifs: ['MY', 'big', 'fat', 'greek', 'wedding']  }, [Giphy.giphyFetch, Giphy.addGiphyUrls], function (err, resp) {
-  console.log(resp);
-});
-
-
-
-// Giphy.giphyFetch({ name: 'My Big Fat Greek Wedding', gifs: ['my', 'big', 'fat', 'greek', 'wedding']  }, function (err, resp) {
-//   if(err) console.log(err);
-//   console.log(resp);
-// });

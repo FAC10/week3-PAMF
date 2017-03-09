@@ -1,32 +1,3 @@
-var attachForm = (function (){
-
-  var addFormEvent = function (obj) {
-    console.log('formadding');
-    var form = document.getElementsByTagName('form')[0];
-    form.style.display = 'inline';
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      answerValidation(e.target[0].value, obj.name);
-    });
-  }
-  function answerValidation(user_answer, answer){
-    console.log('formValidation')
-    if (answer.toLowerCase() === user_answer.toLowerCase() ) {
-      console.log("success");
-    }
-    else {
-      console.log("try again");
-    }
-  }
-
-  return function (obj, cb) {
-    console.log(obj.name);
-    addFormEvent(obj);
-    cb(null, 'THE GAME IS NOW READY');
-  }
-
-})();
-
 var guessMovieApp = (function () {
   var bannedWords = function (input, cb) {
     var banned = ['of','the','from','my'];
