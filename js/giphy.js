@@ -50,9 +50,7 @@ var Giphy = (function (){
     // { name: 'My Big Fat Greek Wedding', gifs: ['my', 'big', etc]  }
     var result = { name:obj.name };
     var args = conditionalArrayMapApply(obj.gifs, isCaps, returnVal, buildURL);
-    console.log(args);
     var tasks = conditionalArrayMap(args, isCaps, skip, fetch);
-    console.log(tasks);
 
     waterfallWithArgs(args, tasks, function (err, resp) {
       if (err) callback(err);
@@ -62,29 +60,44 @@ var Giphy = (function (){
     // callback(err, { name: 'My big etc.', gifs: [[array of url], url, url]})
   };
 
- var dataHandler = function (obj) {
-  return obj.images.original
-  }
+  var accessURL = function (gifObj) {
+    return gifObj.images.original.url;
+  };
 
-var accessObject = function (obj,cb){
-var result = {name:obj.name};
-results.gifs = obj.gifs.map(function (wordGifArray){
-  return wordGifArray.data.map(function (gif){
-    dataHandler(gif);
-  })
+  var addGiphyUrls = function (obj,cb){
+    var result = {name:obj.name};
+    result.gifs = obj.gifs.map(function (wordObject){
+      return wordObject.data.map(function (gifs){
+        return accessURL(gifs);
+      });
+    });
+    cb(null, result);
+  };
 
-})
-cb (result);
-
-}
-
-  return { giphyFetch : giphyFetch };
+  return { giphyFetch : giphyFetch, addGiphyUrls:addGiphyUrls};
 })();
 
+function waterfall(arg, tasks, cb) {
+   var waterfallcb = function(error, res) {
+    if (error) { return cb(error); }
+    n += 1;
+    if (n === tasks.length) {
+      tasks[n - 1](res, cb);
+    } else {
+      tasks[n - 1](res, waterfallcb);
+    }
+  };
+  var n = 0;
+  waterfallcb(null, arg);
+}
 
-
-
-Giphy.giphyFetch({ name: 'My Big Fat Greek Wedding', gifs: ['my', 'big', 'fat', 'greek', 'wedding']  }, function (err, resp) {
-  if(err) console.log(err);
+waterfall({ name: 'My Big Fat Greek Wedding', gifs: ['MY', 'big', 'fat', 'greek', 'wedding']  }, [Giphy.giphyFetch, Giphy.addGiphyUrls], function (err, resp) {
   console.log(resp);
 });
+
+
+
+// Giphy.giphyFetch({ name: 'My Big Fat Greek Wedding', gifs: ['my', 'big', 'fat', 'greek', 'wedding']  }, function (err, resp) {
+//   if(err) console.log(err);
+//   console.log(resp);
+// });
