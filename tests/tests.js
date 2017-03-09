@@ -4,7 +4,6 @@ test('title handling', (assert) => {
     var result = bannedWords({
         name: 'Lord of the rings From Rocks'
     });
-    console.log(result);
     var expected = ['lord', 'OF', 'THE', 'rings', 'FROM', 'rocks'];
     assert.deepEqual(result, expected);
 })
