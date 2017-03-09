@@ -50,7 +50,7 @@ function movieDB (callback) outputs an object with the name of a random popular 
 
 ### Giphy
 
-function giphy ({ film:filmName }, callback) adds an array containing a set of 10 gif links per word to an object.
+function giphy ({ name:filmName }, callback) adds an array containing a set of 10 gif links per word to an object.
 
 ### Data Handling
 
