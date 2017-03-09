@@ -1,5 +1,6 @@
 // // name: "lord of the rings", gifs: [url, 'OF', "THE", url]
 //
+var createElements = (function () {
 function howManyGifs (arr) {
   var count = 0;
   arr.forEach(function(e) {
@@ -27,12 +28,14 @@ function create (num, element, cls, txt, src) {
     arr.push(el);
     num--;
   }
+  console.log(arr);
   return arr;
 }
-
+  return { create:create, howManyGifs:howManyGifs };
+})();
 
 //tests
 
-create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png');
-//
+// create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png');
+// //
 // howManyGifs(['www.facebook.com', 'OF', "google.com", 'THE']);
