@@ -52,6 +52,7 @@ form {
   font-size: 1.5rem;
   border: 0.2rem solid white;
   padding: 1rem;
+  width: 50%;
 }
 
 input {
@@ -60,15 +61,13 @@ input {
   border: none;
   padding:1rem;
   font-family: 'futura';
+  width: 70%;
 }
 
-input:focus {
+input:focus, button:focus {
   outline: none;
 }
 
-::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
-  font-size: 1.2rem;
-  text-align: center;
-  color: #93b3d4;
-  font-family: 'futura';
+::-webkit-input-placeholder {
+  color: #5dbcff;
 }
