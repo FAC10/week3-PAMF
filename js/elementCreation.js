@@ -29,6 +29,7 @@ var createElements = (function() {
 // Appends colums and column titles to flex container
     return function (obj, cb) {
       var flex = document.querySelector('.flex');
+      flex.innerHTML = '';
       obj.gifs.forEach(function(o, i) {
         var column = create('section', 'columns');
         var word = create('p', 'word-number', 'word ' + (i + 1), '');

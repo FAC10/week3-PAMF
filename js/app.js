@@ -37,3 +37,7 @@ var guessMovieApp = (function () {
 })();
 
 guessMovieApp.run();
+
+document.getElementById('testbutton').addEventListener('click', function () {
+  guessMovieApp.run();
+})
