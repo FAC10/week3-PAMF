@@ -101,9 +101,9 @@ function waterfall(arg, tasks, cb) {
   waterfallcb(null, arg);
 }
 
-waterfall({ name: 'My Big Fat Greek Wedding', gifs: ['MY', 'big', 'fat', 'greek', 'wedding']  }, [Giphy.giphyFetch, Giphy.addGiphyUrls], function (err, resp) {
-  console.log(resp);
-});
+// waterfall({ name: 'My Big Fat Greek', gifs: ['MY', 'big', 'fat', 'greek', 'wedding']  }, [Giphy.giphyFetch, Giphy.addGiphyUrls], function (err, resp) {
+  // console.log(resp);
+// });
 
 
 
