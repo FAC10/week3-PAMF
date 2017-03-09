@@ -36,6 +36,6 @@ var guessMovieApp = (function () {
 
 guessMovieApp.run();
 
-document.getElementById('testbutton').addEventListener('click', function () {
+document.getElementById('reset-button').addEventListener('click', function () {
   guessMovieApp.run();
 })

@@ -9,11 +9,13 @@ var attachForm = (function (){
     });
   };
   var answerValidation = function (user_answer, answer){
+    user = user_answer.split(' ');
+    ans = answer.split(' ');
     if (answer.toLowerCase() === user_answer.toLowerCase() ) {
-      console.log("success");
+      document.getElementById('id').innerText = 'Correct! The film was ' + answer;
     }
     else {
-      console.log("try again");
+      document.getElementById('id').innerText = 'Correct! The film was ' + answer;
     }
   };
 
