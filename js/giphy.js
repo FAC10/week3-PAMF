@@ -82,7 +82,8 @@ var Giphy = (function (){
      addGiphyUrls:addGiphyUrls,
      conditionalArrayMapApply:conditionalArrayMapApply,
      conditionalArrayMap:conditionalArrayMap,
-     buildURL:buildURL
+     buildURL:buildURL,
+     waterfallWithArgs:waterfallWithArgs
    };
 })();
 

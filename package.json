@@ -1,0 +1,15 @@
+{
+  "name": "stopwatch",
+  "version": "1.0.0",
+  "description": "Simple JavaScript stopwatch",
+  "main": "index.js",
+  "scripts": {
+    "bs": "browser-sync start --server --files './**/*.html, ./**/*.css, ./**/*.js'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  },
+  "dependencies": {}
+}

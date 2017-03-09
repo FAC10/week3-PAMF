@@ -22,10 +22,10 @@ test('test that conditionalArrayMapApply function outputs the right array accori
   var ifthis = Number.isInteger;
   var thenthis = function(n){
     return "number";
-  }
+  };
   var elsethis = function(n){
     return "string";
-  }
+  };
   var result = Giphy.conditionalArrayMapApply(arr, ifthis, thenthis, elsethis);
   var expected = ["number", "number", "string", "string"];
   assert.deepEqual(result, expected);
@@ -33,6 +33,31 @@ test('test that conditionalArrayMapApply function outputs the right array accori
   result = Giphy.conditionalArrayMap(arr, ifthis, thenthis, elsethis);
   expected = [thenthis, thenthis, elsethis, elsethis];
   assert.deepEqual(result, expected);
+});
+
+test('check that waterfall with args corretly outputs an array with results from each task in order, even if it\'s asynchronous', (assert) => {
+  var done = assert.async();
+  var add1 = function (arg, cb) {
+    cb(null, arg + 1);
+  };
+
+  var add2 = function (arg, cb) {
+    setTimeout(function() {
+      cb(null, arg + 2);
+    }, 100);
+  };
+
+  var args = [1, 2, 3, 4, 5];
+  var tasks = [add1, add2, add1, add2, add2];
+
+  var result = null;
+  var expected = [2, 4, 4, 6, 7];
+
+  Giphy.waterfallWithArgs(args, tasks, function (err, resp) {
+    result = resp;
+    assert.deepEqual(result, expected, 'runs the tasks in the correct order with the correct arguments');
+    done();
+  });
 
 });
 
