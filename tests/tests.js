@@ -21,31 +21,26 @@ test('tests that random number function returns a random number between 1 and 20
 });
 
 module('Element creation')
-test("test that create function creates 3 html elements are created", (assert) => {
-result = (createElements.create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png')).length;
-expected = 3;
-assert.equal(result, expected);
-});
 
 test("test that first p elements have the class 'columns'", (assert) => {
-result = (createElements.create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png'))[0].className;
+result = createElements.create('p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png').className;
 expected = 'columns';
 assert.equal(result, expected);
 });
 
 test("test that an images are created", (assert) => {
-result = (createElements.create(2, 'img', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png'))[0].tagName === 'IMG';
+result = createElements.create('img', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png').tagName === 'IMG';
 assert.ok(result);
 });
 
 test("test that innerHTML is being created on new element", (assert) => {
-result = (createElements.create(2, 'p', 'columns','hello', 'https://www.hello.com/img_/hello_logo_hero.png'))[1].innerHTML;
+result = createElements.create('p', 'columns','hello', 'https://www.hello.com/img_/hello_logo_hero.png').innerHTML;
 expected = 'hello';
 assert.equal(result, expected);
 });
 
 test("test that image has the right src", (assert) => {
-result = (createElements.create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png'))[2].src;
+result = createElements.create('p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png').src;
 expected = 'https://www.hello.com/img_/hello_logo_hero.png';
 assert.equal(result, expected);
 });

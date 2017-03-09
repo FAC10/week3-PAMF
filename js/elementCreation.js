@@ -12,12 +12,11 @@ function howManyGifs (arr) {
   return count;
 }
 
-function create (num, element, cls, txt, src) {
-  var arr = [];
-  while (num > 0) {
+function create (element, cls, txt, src) {
     var el = document.createElement(element);
     if (cls) {
     el.className = cls;
+    console.log(el.className);
   }
   if (txt) {
     el.innerHTML = txt;
@@ -25,17 +24,13 @@ function create (num, element, cls, txt, src) {
   if (src) {
     el.src = src;
   }
-    arr.push(el);
-    num--;
-  }
-  console.log(arr);
-  return arr;
+  return el;
 }
   return { create:create, howManyGifs:howManyGifs };
 })();
 
 //tests
 
-// create(3, 'p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png');
+createElements.create('p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png');
 // //
 // howManyGifs(['www.facebook.com', 'OF', "google.com", 'THE']);
