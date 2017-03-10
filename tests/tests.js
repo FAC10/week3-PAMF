@@ -1,19 +1,24 @@
 
 module('giphy API');
-test('title handling', (assert) => {
-    var result = bannedWords({
+test('banned words handling', (assert) => {
+    var result = guessMovieApp.bannedWords({
         name: 'Lord of the rings From Rocks'
+    }, function(err, res){
+      var expected = ['lord', 'OF', 'THE', 'rings', 'FROM', 'rocks'];
+      assert.deepEqual(res.gifs, expected, 'app recognizes banned words array');
     });
-    var expected = ['lord', 'OF', 'THE', 'rings', 'FROM', 'rocks'];
-    assert.deepEqual(result, expected);
+
+
 });
 
 test('test that Giphy.buildURL creates a valid Giphy url', (assert) => {
   var result = Giphy.buildURL("lord");
-  var expected = "http://api.giphy.com/v1/gifs/search?q=lord";
+  console.log(result);
+  var expected = "https://api.giphy.com/v1/gifs/search?q=lord";
   assert.ok(result.includes (expected));
   result = Giphy.buildURL("finn");
-  expected = "http://api.giphy.com/v1/gifs/search?q=finn";
+  console.log(result);
+  expected = "https://api.giphy.com/v1/gifs/search?q=finn";
   assert.ok(result.includes(expected));
 });
 
