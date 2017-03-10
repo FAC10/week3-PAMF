@@ -15,7 +15,7 @@ var attachForm = (function (){
       var modal = document.getElementById('myModal');
       var closeModal = document.getElementsByClassName('close')[0];
       var modalText = document.getElementById('modalText');
-
+      closeModal.focus();
       modal.style.display = "block";
       modalText.innerText = 'The film was ' + obj.name;
       closeModal.onclick = function() {
@@ -36,6 +36,7 @@ var attachForm = (function (){
       if (answer.toLowerCase() === user_answer.toLowerCase() ) {
           modal.style.display = "block";
           mContent.style.backgroundColor = '#00ff90';
+          closeModal.focus();
           modalText.innerText = 'Success! The movie title is ' + answer;
           mContent.style.color = '#000';
           closeModal.onclick = function() {
@@ -45,6 +46,7 @@ var attachForm = (function (){
     }
     else {
       modal.style.display = "block";
+      closeModal.focus();
       mContent.style.backgroundColor = '#ff0070';
       modalText.innerText = 'Try again'
       closeModal.onclick = function() {
