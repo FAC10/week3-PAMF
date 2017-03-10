@@ -40,4 +40,7 @@ guessMovieApp.run();
 
 document.getElementById('reset-button').addEventListener('click', function () {
   guessMovieApp.run();
+  var input = document.getElementsByTagName('input')[0];
+  input.value = '';
+  input.focus();
 })
