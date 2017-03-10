@@ -72,6 +72,14 @@ input:focus, button:focus {
   color: #5dbcff;
 }
 
+:-ms-input-placeholder {
+  color: #5dbcff;
+}
+
+::-ms-input-placeholder {
+  color: #5dbcff;
+}
+
 /*Mobile*/
 
 @media screen and (max-width: 800px) {
