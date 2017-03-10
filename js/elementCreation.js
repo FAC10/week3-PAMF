@@ -45,6 +45,6 @@ var createElements = (function() {
       cb(null, obj);
     };
 
-    return {creatorFunction:creatorFunction, gifAppend:gifAppend, gifCreation:gifCreation, createElements:createElements}
+    return {creatorFunction:creatorFunction, gifAppend:gifAppend, gifCreation:gifCreation, create:create}
 
 })();
