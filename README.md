@@ -89,3 +89,9 @@ We will use QUnit to test these functions.
 * Add a user score that increments (e.g. 5 points for correct answer **without** clues, 3 points for correct answer **with** clues)
 * Add ability to change the number of GIFs shown per word in order to alter the difficulty of the game
 * Add the ability to **filter movies** by genre
+
+## Complete Architecture
+
+In the end we built the app in a similar way except that we incorporated a central app.js file that called all the functions:
+
+![Complete architecture flow chart](assets/images/FinalChart.png)
