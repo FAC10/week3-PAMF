@@ -5,7 +5,7 @@ var Giphy = (function (){
   };
 // Builds url for Giphy API call from the giphy keyword
   var buildURL = function (word) {
-    return 'http://api.giphy.com/v1/gifs/search?q=' + word + '&limit=3&api_key=dc6zaTOxFJmzC';
+    return 'https://api.giphy.com/v1/gifs/search?q=' + word + '&limit=3&api_key=dc6zaTOxFJmzC';
   };
 
   // maps an array with a values dependent on condition
@@ -64,7 +64,7 @@ var Giphy = (function (){
   var accessURL = function (gifObj) {
     return gifObj.images.original.url;
   };
-  // creates object with the movie title and an array of giphy urls and 'banned' words 
+  // creates object with the movie title and an array of giphy urls and 'banned' words
   var addGiphyUrls = function (obj,cb){
     var result = {name:obj.name};
 

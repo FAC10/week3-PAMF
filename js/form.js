@@ -15,12 +15,11 @@ var attachForm = (function (){
       document.getElementById('output').innerText = 'Correct! The film was ' + answer;
     }
     else {
-      document.getElementById('output').innerText = 'Correct! The film was ' + answer;
+      document.getElementById('output').innerText = 'Incorrect! The correct answer is ' + answer;
     }
   };
 
   return function (obj, cb) {
-    console.log(obj.name);
     addFormEvent(obj);
     cb(null, 'THE GAME IS NOW READY');
   };
