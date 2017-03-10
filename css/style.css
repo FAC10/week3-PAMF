@@ -1,5 +1,5 @@
 body {
-  font-family: 'avenir';
+  font-family: 'roboto', sans-serif;;
   text-align: center;
   background-color: #5dbcff;
 }
@@ -17,7 +17,7 @@ body {
 button, input[type='submit'] {
     padding: 0.6rem;
     font-size: 1.5rem;
-    font-family: 'avenir';
+    font-family: 'roboto', sans-serif;;
     background-color: #5dbcff;
     border: 0.2rem solid white;
     color: white;
@@ -60,7 +60,7 @@ input {
   text-align: center;
   border: none;
   padding:1rem;
-  font-family: 'avenir';
+  font-family: 'roboto', sans-serif;;
   width: 70%;
 }
 
