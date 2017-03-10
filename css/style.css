@@ -71,3 +71,21 @@ input:focus, button:focus {
 ::-webkit-input-placeholder {
   color: #5dbcff;
 }
+
+/*Mobile*/
+
+@media screen and (max-width: 800px) {
+.columns img {
+max-width: 80vw;
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  width: 90%;
+  font-size: 1.3rem;
+}
+
+}
