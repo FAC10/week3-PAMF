@@ -20,6 +20,13 @@ var guessMovieApp = (function () {
     });
   };
 
+  var reset = function () {
+    guessMovieApp.run();
+    var input = document.getElementsByTagName('input')[0];
+    input.value = '';
+    input.focus();
+  };
+
   function waterfall(arg, tasks, cb) {
     var waterfallcb = function(error, res) {
       if (error) { return cb(error); }
@@ -33,14 +40,9 @@ var guessMovieApp = (function () {
     var n = 0;
     waterfallcb(null, arg);
    }
-   return { run:run, bannedWords:bannedWords, waterfall: waterfall };
+   return { run:run, bannedWords:bannedWords, waterfall: waterfall, reset:reset };
 })();
 
 guessMovieApp.run();
 
-document.getElementById('reset-button').addEventListener('click', function () {
-  guessMovieApp.run();
-  var input = document.getElementsByTagName('input')[0];
-  input.value = '';
-  input.focus();
-})
+document.getElementById('reset-button').addEventListener('click', guessMovieApp.reset);
