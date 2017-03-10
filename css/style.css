@@ -1,10 +1,5 @@
-@font-face {
-    font-family: 'futura';
-    src: url(./assets/Futura.ttc);
-}
-
 body {
-  font-family: 'futura';
+  font-family: 'avenir';
   text-align: center;
   background-color: #5dbcff;
 }
@@ -22,7 +17,7 @@ body {
 button, input[type='submit'] {
     padding: 0.6rem;
     font-size: 1.5rem;
-    font-family: futura;
+    font-family: 'avenir';
     background-color: #5dbcff;
     border: 0.2rem solid white;
     color: white;
@@ -65,7 +60,7 @@ input {
   text-align: center;
   border: none;
   padding:1rem;
-  font-family: 'futura';
+  font-family: 'avenir';
   width: 70%;
 }
 
@@ -75,4 +70,22 @@ input:focus, button:focus {
 
 ::-webkit-input-placeholder {
   color: #5dbcff;
+}
+
+/*Mobile*/
+
+@media screen and (max-width: 800px) {
+.columns img {
+max-width: 80vw;
+}
+
+form {
+  width: 100%;
+}
+
+input {
+  width: 90%;
+  font-size: 1.3rem;
+}
+
 }
