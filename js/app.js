@@ -11,7 +11,7 @@ var guessMovieApp = (function () {
   };
 
   var run = function () {
-    var tasks = [bannedWords, Giphy.giphyFetch, Giphy.addGiphyUrls, createElements, attachForm];
+    var tasks = [bannedWords, Giphy.giphyFetch, Giphy.addGiphyUrls, createElements.creatorFunction, attachForm];
     MovieDB.fetchMovieDB(function (err, resp) {
       waterfall(resp, tasks, function (err, resp) {
         if(err) console.log(err);
@@ -33,7 +33,7 @@ var guessMovieApp = (function () {
     var n = 0;
     waterfallcb(null, arg);
    }
-   return { run:run };
+   return { run:run, bannedWords:bannedWords, waterfall: waterfall };
 })();
 
 guessMovieApp.run();

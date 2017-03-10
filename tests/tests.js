@@ -1,19 +1,24 @@
 
 module('giphy API');
-test('title handling', (assert) => {
-    var result = bannedWords({
+test('banned words handling', (assert) => {
+    var result = guessMovieApp.bannedWords({
         name: 'Lord of the rings From Rocks'
+    }, function(err, res){
+      var expected = ['lord', 'OF', 'THE', 'rings', 'FROM', 'rocks'];
+      assert.deepEqual(res.gifs, expected, 'app recognizes banned words array');
     });
-    var expected = ['lord', 'OF', 'THE', 'rings', 'FROM', 'rocks'];
-    assert.deepEqual(result, expected);
+
+
 });
 
 test('test that Giphy.buildURL creates a valid Giphy url', (assert) => {
   var result = Giphy.buildURL("lord");
-  var expected = "http://api.giphy.com/v1/gifs/search?q=lord";
+  console.log(result);
+  var expected = "https://api.giphy.com/v1/gifs/search?q=lord";
   assert.ok(result.includes (expected));
   result = Giphy.buildURL("finn");
-  expected = "http://api.giphy.com/v1/gifs/search?q=finn";
+  console.log(result);
+  expected = "https://api.giphy.com/v1/gifs/search?q=finn";
   assert.ok(result.includes(expected));
 });
 
@@ -73,39 +78,24 @@ test('tests that random number function returns a random number between 1 and 20
 });
 
 module('Element creation')
-
 test("test that first p elements have the class 'columns'", (assert) => {
-result = createElements.create('p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png').className;
-expected = 'columns';
-assert.equal(result, expected);
+    result = createElements.create('p', 'columns', null, 'https://www.hello.com/img_/hello_logo_hero.png').className;
+    expected = 'columns';
+    assert.equal(result, expected);
 });
-
 test("test that an images are created", (assert) => {
-result = createElements.create('img', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png').tagName === 'IMG';
-assert.ok(result);
+    result = createElements.create('img', 'columns', null, 'https://www.hello.com/img_/hello_logo_hero.png').tagName === 'IMG';
+    assert.ok(result);
 });
-
 test("test that innerHTML is being created on new element", (assert) => {
-result = createElements.create('p', 'columns','hello', 'https://www.hello.com/img_/hello_logo_hero.png').innerHTML;
-expected = 'hello';
-assert.equal(result, expected);
+    result = createElements.create('p', 'columns', 'hello', 'https://www.hello.com/img_/hello_logo_hero.png').innerHTML;
+    expected = 'hello';
+    assert.equal(result, expected);
 });
-
 test("test that image has the right src", (assert) => {
-result = createElements.create('p', 'columns',null, 'https://www.hello.com/img_/hello_logo_hero.png').src;
-expected = 'https://www.hello.com/img_/hello_logo_hero.png';
-assert.equal(result, expected);
-});
+    result = createElements.create('p', 'columns', null, 'https://www.hello.com/img_/hello_logo_hero.png').src;
+    expected = 'https://www.hello.com/img_/hello_logo_hero.png'
 
-module('counting gifs(urls) for column creation')
-test("test that the function finds two urls", (assert) => {
-result = createElements.howManyGifs(['www.facebook.com', 'OF', "google.com", 'THE']);
-expected = 2;
-assert.equal(result, expected);
-});
-
-test("test that the function returns 4 urls", (assert) => {
-result = createElements.howManyGifs(['THE','www.facebook.com', 'OF', "google.com", 'THE', 'www.instagram.com', 'https://www.hello.com/img_/hello_logo_hero.png']);
-expected = 4;
-assert.equal(result, expected);
+    ;
+    assert.equal(result, expected);
 });

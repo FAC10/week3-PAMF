@@ -12,15 +12,41 @@
 <body style='margin: 0 1em;'>
 
 
+
     <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
+
+
+    <div id="qunit-fixture">
+
+      <header id='header'>
+          <h1>The Great GIFs (Movie) Guessing Game</h1>
+          <button id='header-button' class='input' type="button" name="button">How to play</button>
+      </header>
+      <div class='flex'>
+          <!-- GAME GIFS GO HERE ! -->
+      </div>
+
+      <div id="output"></div>
+
+      <div class='flex'>
+          <form>
+              <label for="movie_title">Movie title</label>
+              <input type="text" name="movie_title" id="movie_title" autofocus placeholder="Guess the movie & hit enter...!">
+          </form>
+          <button id="reset-button">reset</button>
+      </div>
+    </div>
     <!-- Load the QUnit Testing Framework from CDN - this is the important bit ... -->
+
     <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/blanket.js/1.1.4/blanket.js"></script>
     <script src="../js/index.js" data-cover charset="utf-8"></script>
     <script src="../js/moviedb.js" data-cover charset="utf-8"></script>
     <script src="../js/giphy.js" data-cover charset="utf-8"></script>
     <script src="../js/elementCreation.js" data-cover charset="utf-8"></script>
+    <script src="../js/form.js" data-cover charset="utf-8"></script>
+    <script src="../js/app.js" data-cover charset="utf-8"></script>
     <script src="tests.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>

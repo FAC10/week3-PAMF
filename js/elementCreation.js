@@ -27,7 +27,7 @@ var createElements = (function() {
         });
     }
 // Appends colums and column titles to flex container
-    return function (obj, cb) {
+    var creatorFunction = function (obj, cb) {
       var flex = document.querySelector('.flex');
       flex.innerHTML = '';
       obj.gifs.forEach(function(o, i) {
@@ -44,5 +44,7 @@ var createElements = (function() {
       });
       cb(null, obj);
     };
+
+    return {creatorFunction:creatorFunction, gifAppend:gifAppend, gifCreation:gifCreation, create:create}
 
 })();
