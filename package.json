@@ -1,7 +1,7 @@
 {
-  "name": "stopwatch",
+  "name": "Guess the Movie",
   "version": "1.0.0",
-  "description": "Simple JavaScript stopwatch",
+  "description": "A game that asks users to guess popular movie names based on a series of gifs",
   "main": "index.js",
   "scripts": {
     "bs": "browser-sync start --server --files './**/*.html, ./**/*.css, ./**/*.js'"
