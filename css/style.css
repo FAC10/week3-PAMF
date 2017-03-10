@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'futura';
+    src: url(./assets/Futura.ttc);
+}
+
 body {
   font-family: 'futura';
   text-align: center;
