@@ -103,6 +103,7 @@ input {
 }
 
 .modal-content {
+    color: white;
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -110,14 +111,14 @@ input {
     width: 80%;
 }
 
-.close {
+/*.close {
     color: #aaaaaa;
     font-size: 20px;
-}
+}*/
 
-.close:hover,
+/*.close:hover,
 .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-}
+}*/
